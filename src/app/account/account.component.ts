@@ -24,7 +24,7 @@ export class AccountComponent implements OnInit {
   }
 
   getAccount() {
-    this.http.get('http://localhost:5000/api/account').subscribe(response => {
+    this.http.get('http://localhost:56188/api/account').subscribe(response => {
       this.account = response.json();
     });
   }
@@ -35,7 +35,7 @@ export class AccountComponent implements OnInit {
 
   onClickSubmit(amount) {
     this.timer = true;
-    this.http.post('http://localhost:5000/api/account/update', { 'amount': amount }).subscribe(response => {
+    this.http.post('http://localhost:56188/api/account/update', { 'amount': amount }).subscribe(response => {
       this.account = response.json();
     });
     setTimeout(() => {

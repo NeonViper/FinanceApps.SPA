@@ -1,0 +1,39 @@
+<div *ngIf="toggle == false" class="account__info">
+  <div class="account__info--text">
+    <div class="account__balance">
+      <p class="amount">
+        {{ account.balance | currency : undefined : true : "2.0" }}
+      </p>
+      <p class="account__field-name">
+        Balance
+      </p>
+    </div>
+    <div class="account__available-credit">
+      <p class="amount">
+        {{ account.available | currency : undefined : true : "2.0" }}
+      </p>
+      <p class="account__field-name">
+        Available Credit
+      </p>
+    </div>
+    <div class="account__credit-limit">
+      <p class="amount">
+        {{ account.creditLimit | currency : undefined : true : "2.0" }}
+      </p>
+      <p class="account__field-name">
+        Credit Limit
+      </p>
+    </div>
+  </div>
+  <button mat-raised-button color="accent" class="account__withdraw--btn" (click)="onClickWithdraw()">Withdraw</button>
+</div>
+
+
+<div *ngIf="toggle == true && timer == false" class="account__info">
+  <mat-form-field class="input-full-width">
+    <input matInput placeholder="Amount" #amount>
+  </mat-form-field>
+  <button mat-raised-button color="accent" class="account__withdraw--btn" (click)="onClickSubmit(amount.value)">Submit</button>
+</div>
+
+<mat-progress-spinner *ngIf="timer == true" mode="indeterminate" color="accent"></mat-progress-spinner>
